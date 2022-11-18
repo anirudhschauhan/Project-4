@@ -1,2 +1,4 @@
-package com.example.project4;public class NewYorkStyleController {
+package com.example.project4;
+
+public class NewYorkStyleController {
 }
