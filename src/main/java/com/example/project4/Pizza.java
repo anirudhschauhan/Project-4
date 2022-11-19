@@ -10,6 +10,7 @@ public abstract class Pizza implements Customizable{
     private ArrayList<Topping> toppings;
     private Crust crust;
     private Size size;
+    private String style;
     public abstract double price();
     public ArrayList<Topping> getToppingList(){
         if(toppings ==null){
@@ -38,5 +39,29 @@ public abstract class Pizza implements Customizable{
     }
     public void setCrust(Crust crust){
         this.crust = crust;
+    }
+    public void setStyle(String style){
+        this.style = style;
+    }
+    public String getStyle(){
+        return this.style;
+    }
+    public String printArrayList(){
+        String stri = "";
+        for(int i = 0; i < getToppingList().size(); i++){
+            stri += "" + getToppingList().get(i);
+            if(i < getToppingList().size()){
+                stri +=", ";
+            }
+        }
+        return stri;
+    }
+
+
+    @Override
+    public String toString() {
+        String str;
+        str = "Pizza Style: " + getStyle() + "; Crust: " + getCrust()+ "; Toppings: " + printArrayList() + "; Price: $" + price() + "; ";
+        return (str);
     }
 }

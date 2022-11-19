@@ -21,4 +21,12 @@ public class MainApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
+    /*
+    -add pictures
+    -add order number
+    -make to string in order for displaying the stuff
+    -in order class display orders by order number
+    - do the export method
+    - do the new york class and make adjustments to the chicago code
+     */
 }

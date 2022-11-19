@@ -29,9 +29,8 @@ public class ChicagoStyleController implements Initializable {
     private ListView<Topping> myListView, topListView;
     private static final int MAX_TOPPINGS = 7;
 
-
     @FXML
-    private Label priceLabel;
+    private Label priceLabel, crustLabel;
     private PizzaFactory piza;
     private Pizza pia;
     private Topping currentTopping;
@@ -63,21 +62,25 @@ public class ChicagoStyleController implements Initializable {
         String flav = flavorComboBox.getValue().toString();
         if (flav.equals("DELUXE")) {
             pia = piza.createDeluxe();
+            crustLabel.setText(""+ pia.getCrust());
             addButton.setDisable(true);
             removeButton.setDisable(true);
         }
         if (flav.equals("MEATZZA")) {
             pia = piza.createMeatzza();
+            crustLabel.setText(""+ pia.getCrust());
             addButton.setDisable(true);
             removeButton.setDisable(true);
         }
         if (flav.equals("BBQ CHICKEN")) {
             pia = piza.createBBQChicken();
+            crustLabel.setText(""+ pia.getCrust());
             addButton.setDisable(true);
             removeButton.setDisable(true);
         }
         if (flav.equals("BUILD YOUR OWN")) {
             pia = piza.createBuildYourOwn();
+            crustLabel.setText(""+ pia.getCrust());
             addButton.setDisable(false);
             removeButton.setDisable(false);
 
@@ -131,18 +134,30 @@ public class ChicagoStyleController implements Initializable {
         if(pia.getToppingList().size() <= MAX_TOPPINGS){
             addButton.setDisable(false);
         }
-
+        changePrice();
 
     }
-    public void addOrder(){
+    //not right
 
-       // pizzaOrders.add(pia);
+    public void addOrder(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Pizza Added");
+        alert.setHeaderText("Your pizza has been added to the order!");
+        alert.setContentText("You can find your pizza in the current order section");
+        alert.show();
+
+        MainController.addToOrder(pia);
+
         pia = piza.createDeluxe();
+        crustLabel.setText(""+ pia.getCrust());
+
         addButton.setDisable(true);
         removeButton.setDisable(true);
+
         flavorComboBox.setValue("DELUXE");
         smallSize.setSelected(true);
-        changePrice();
+
+        changeSize();
         priceLabel.setText(""+ pia.price()+"");
 
 

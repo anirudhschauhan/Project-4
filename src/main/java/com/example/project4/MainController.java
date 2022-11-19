@@ -12,12 +12,17 @@ import java.util.ArrayList;
 public class MainController {
     @FXML
     private Label welcomeText;
-    public static ArrayList<Pizza> pizzaOrders;
+    private static Order ord;
+    private static StoreOrders storeOrd;
 
    // @FXML
    // protected void onHelloButtonClick() {
    //     welcomeText.setText("Welcome to JavaFX Application!");
   //  }
+    public MainController(){
+        ord = new Order();
+        storeOrd = new StoreOrders();
+    }
     @FXML
     protected void onChicagoButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("chicago-view.fxml"));
@@ -54,7 +59,16 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
-    protected static ArrayList<Pizza> getArrayList(){
-        return pizzaOrders;
+    protected static Order getOrd(){
+        return ord;
+    }
+    protected static StoreOrders getStoreOrd(){
+        return storeOrd;
+    }
+    protected static void addToOrder(Pizza za){
+        ord.add(za);
+    }
+    protected static void addStoreOrd(Order or){
+        storeOrd.add(or);
     }
 }
