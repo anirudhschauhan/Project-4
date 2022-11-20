@@ -4,7 +4,7 @@ public class ChicagoPizza implements PizzaFactory{
     @Override
     public Pizza createBBQChicken() {
         Pizza pia = new BBQChicken();
-        pia.setStyle("CHICAGO");
+
         pia.setCrust(Crust.valueOf("PAN"));
         pia.add(Topping.valueOf("BBQCHICKEN"));
         pia.add(Topping.valueOf("GREENPEPPER"));
@@ -17,7 +17,7 @@ public class ChicagoPizza implements PizzaFactory{
     @Override
     public Pizza createBuildYourOwn() {
         Pizza pia = new BuildYourOwn();
-        pia.setStyle("CHICAGO");
+
         pia.setCrust(Crust.valueOf("PAN"));
         return pia;
     }
@@ -25,7 +25,7 @@ public class ChicagoPizza implements PizzaFactory{
     @Override
     public Pizza createDeluxe() {
         Pizza pia = new Deluxe();
-        pia.setStyle("CHICAGO");
+
         pia.setCrust(Crust.valueOf("DEEPDISH"));
         pia.add(Topping.valueOf("SAUSAGE"));
         pia.add(Topping.valueOf("PEPPERONI"));
@@ -38,7 +38,7 @@ public class ChicagoPizza implements PizzaFactory{
     @Override
     public Pizza createMeatzza() {
         Pizza pia = new Meatzza();
-        pia.setStyle("CHICAGO");
+
         pia.setCrust(Crust.valueOf("STUFFED"));
         pia.add(Topping.valueOf("SAUSAGE"));
         pia.add(Topping.valueOf("PEPPERONI"));

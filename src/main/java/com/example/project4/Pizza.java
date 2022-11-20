@@ -40,12 +40,6 @@ public abstract class Pizza implements Customizable{
     public void setCrust(Crust crust){
         this.crust = crust;
     }
-    public void setStyle(String style){
-        this.style = style;
-    }
-    public String getStyle(){
-        return this.style;
-    }
     public String printArrayList(){
         String stri = "";
         for(int i = 0; i < getToppingList().size(); i++){
@@ -58,10 +52,6 @@ public abstract class Pizza implements Customizable{
     }
 
 
-    @Override
-    public String toString() {
-        String str;
-        str = "Pizza Style: " + getStyle() + "; Crust: " + getCrust()+ "; Toppings: " + printArrayList() + "; Price: $" + price() + "; ";
-        return (str);
-    }
+
+
 }

@@ -8,7 +8,8 @@ public class StoreOrders implements Customizable{
     private int serialNum;
     public StoreOrders(){
         storeOrders = new ArrayList<>();
-        //serialNum = storeOrders..getOrderSerial();
+        ord = new Order();
+        serialNum = 0;
     }
     @Override
     public boolean add(Object obj) {
@@ -29,8 +30,8 @@ public class StoreOrders implements Customizable{
         }
         return false;
     }
-    protected ArrayList<Order>getStoreOrders(){
-        if(storeOrders ==null){
+    protected ArrayList<Order> getStoreOrders(){
+        if(storeOrders == null){
             storeOrders = new ArrayList<>();
         }
         return this.storeOrders;

@@ -13,8 +13,11 @@ public class Order implements Customizable{
 
     private ArrayList<Pizza> pizzaOrders;
     protected int serial;
+    private Pizza pia;
+    private double taxPrice;
     public Order(){
         pizzaOrders = new ArrayList<>();
+
     }
 
 
@@ -76,4 +79,11 @@ public class Order implements Customizable{
     public int getOrderSerial(){
         return this.serial;
     }
+    public void setTaxPrice(double price){
+        this.taxPrice = price;
+    }
+    public double getTaxPrice(){
+        return this.taxPrice;
+    }
+
 }

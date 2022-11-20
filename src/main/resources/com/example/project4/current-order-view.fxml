@@ -20,6 +20,6 @@
       <Button layoutX="281.0" layoutY="338.0" mnemonicParsing="false" onAction="#removeAllPizzas" text="Remove All Pizzas" />
       <Button layoutX="459.0" layoutY="338.0" mnemonicParsing="false" onAction="#placeOrders" text="Place Orders" />
       <Label layoutX="129.0" layoutY="252.0" text="Order Number:" />
-      <TextField fx:id="numberField" layoutX="216.0" layoutY="248.0" />
+      <TextField fx:id="numberField" editable="false" layoutX="216.0" layoutY="248.0" />
    </children>
 </AnchorPane>

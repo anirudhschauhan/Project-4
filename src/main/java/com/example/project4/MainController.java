@@ -68,6 +68,9 @@ public class MainController {
     protected static void addToOrder(Pizza za){
         ord.add(za);
     }
+    protected static void resetOrder(){
+        ord = new Order();
+    }
     protected static void addStoreOrd(Order or){
         storeOrd.add(or);
     }
