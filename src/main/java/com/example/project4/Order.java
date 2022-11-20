@@ -17,33 +17,11 @@ public class Order implements Customizable{
     private double taxPrice;
     public Order(){
         pizzaOrders = new ArrayList<>();
+        serial = MainController.orderNumber();
 
     }
 
 
-/*
-    protected static ArrayList<ArrayList<Pizza>> getOrderList(){
-        if(storeOrders ==null){
-            storeOrders = new ArrayList<>();
-        }
-        return storeOrders;
-    }
-
-    protected static void addToOrderList(ArrayList<Pizza> za){
-            if(storeOrders ==null){
-                storeOrders = new ArrayList<>();
-            }
-            storeOrders.add(za);
-    }
-
-    @Override
-    public String toString() {
-        String str;
-        str = "" + "";
-        return str;
-    }
-
- */
     protected ArrayList<Pizza>getOrders(){
         if(pizzaOrders ==null){
             pizzaOrders = new ArrayList<>();
@@ -73,11 +51,9 @@ public class Order implements Customizable{
     public int getOrderSize(){
         return pizzaOrders.size();
     }
-    public void setOrderSerial(int serial){
-        this.serial = serial;
-    }
+
     public int getOrderSerial(){
-        return this.serial;
+        return serial;
     }
     public void setTaxPrice(double price){
         this.taxPrice = price;

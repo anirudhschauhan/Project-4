@@ -1,5 +1,6 @@
 package com.example.project4;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,6 +10,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -26,10 +28,10 @@ public class StoreOrderController implements Initializable {
     private int index;
 
     private Pizza pia;
+
     private StoreOrders storeOrders;
     public StoreOrderController(){
         numbers = new ArrayList<>();
-      //  order = new Order();
         storeOrders = MainController.getStoreOrd();
 
     }
@@ -45,6 +47,7 @@ public class StoreOrderController implements Initializable {
             break;
             //System.out.println("" + ord.getOrderSerial());
         }
+
         for (Order ord : storeOrders.getStoreOrders()) {
             numbers.add(ord.getOrderSerial());
         }
@@ -71,19 +74,46 @@ public class StoreOrderController implements Initializable {
         for(Pizza za : random.getOrders()){
              orderListView.getItems().add(toString(za));
         }
-        String orderPrice = df.format(order.getTaxPrice());
+        String orderPrice = df.format(random.getTaxPrice());
         taxField.setText("" + orderPrice);
     }
-    public void cancelOrder(){
-        String num = orderCombo.getValue().toString();
-        int newNum = Integer.parseInt(num);
+    public void cancelOrder(ActionEvent Event){
+        if(numbers.size() == 1){
+            String num = orderCombo.getValue().toString();
+            int newNum = Integer.parseInt(num);
 
-        if (numbers.contains(newNum)) {
-            index = numbers.indexOf(newNum);
+            if (numbers.contains(newNum)) {
+
+                index = numbers.indexOf(newNum);
+            }
+            Order random = storeOrders.getStoreOrders().get(index);
+
+            numbers.remove(index);
+            MainController.removeOrderNumber(index);
+            storeOrders.getStoreOrders().remove(random);
+            orderListView.getItems().clear();
+            orderCombo.getItems().remove(index);
+            orderCombo.getItems().add("");
         }
-        Order random = storeOrders.getStoreOrders().get(index);
-        storeOrders.getStoreOrders().remove(random);
+        else {
+            String num = orderCombo.getValue().toString();
+            int newNum = Integer.parseInt(num);
 
+            if (numbers.contains(newNum)) {
+
+                index = numbers.indexOf(newNum);
+            }
+            Order random = storeOrders.getStoreOrders().get(index);
+
+            numbers.remove(index);
+            MainController.removeOrderNumber(index);
+            storeOrders.getStoreOrders().remove(random);
+            orderListView.getItems().clear();
+            // if(numbers.remove(newNum).equals())){
+
+            //}
+            orderCombo.getItems().remove(index);
+        }
     }
     public String toString(Pizza pia) {
         String str;

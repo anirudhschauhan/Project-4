@@ -41,7 +41,7 @@ public class ChicagoStyleController implements Initializable {
         piza = new ChicagoPizza();
         pia = piza.createDeluxe();
         pia.setSize(Size.valueOf("SMALL"));
-        order = new Order();
+       // order = new Order();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -146,7 +146,6 @@ public class ChicagoStyleController implements Initializable {
         alert.setHeaderText("Your pizza has been added to the order!");
         alert.setContentText("You can find your pizza in the current order section");
         alert.show();
-        order.add(pia);
         MainController.addToOrder(pia);
 
 

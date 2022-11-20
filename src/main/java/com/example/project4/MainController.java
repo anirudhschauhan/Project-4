@@ -3,6 +3,7 @@ package com.example.project4;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -14,14 +15,18 @@ public class MainController {
     private Label welcomeText;
     private static Order ord;
     private static StoreOrders storeOrd;
+    private static ArrayList<Integer> orderNumArrayList;
 
    // @FXML
    // protected void onHelloButtonClick() {
    //     welcomeText.setText("Welcome to JavaFX Application!");
   //  }
     public MainController(){
-        ord = new Order();
+        orderNumArrayList = new ArrayList<>();
         storeOrd = new StoreOrders();
+        ord = new Order();
+
+
     }
     @FXML
     protected void onChicagoButtonClick() throws IOException {
@@ -73,5 +78,16 @@ public class MainController {
     }
     protected static void addStoreOrd(Order or){
         storeOrd.add(or);
+    }
+    public static int orderNumber(){
+        int i = 1;
+        while(orderNumArrayList.contains(i)){
+            i++;
+        }
+        orderNumArrayList.add(i);
+        return i;
+    }
+    public static void removeOrderNumber(int rem){
+        orderNumArrayList.remove(rem);
     }
 }

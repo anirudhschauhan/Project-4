@@ -4,12 +4,9 @@ import java.util.ArrayList;
 
 public class StoreOrders implements Customizable{
     private  ArrayList<Order> storeOrders;
-    Order ord;
-    private int serialNum;
+
     public StoreOrders(){
         storeOrders = new ArrayList<>();
-        ord = new Order();
-        serialNum = 0;
     }
     @Override
     public boolean add(Object obj) {

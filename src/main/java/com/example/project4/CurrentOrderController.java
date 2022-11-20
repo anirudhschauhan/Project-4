@@ -50,8 +50,7 @@ public class CurrentOrderController implements Initializable{
             String orderString = df.format(tempNum);
             orderLabel.setText("$" + orderString);
         }
-        int temp = MainController.getStoreOrd().getStoreOrders().size() + INCREMENT;
-        numberField.setText("" + temp);
+        numberField.setText(Integer.toString(order.getOrderSerial()));
     }
     public double totalPrice(double price){
 
@@ -109,10 +108,7 @@ public class CurrentOrderController implements Initializable{
 
     }
     public void placeOrders(){
-        try{
-            Integer.parseInt(numberField.getText());
-        }
-        catch(NumberFormatException e){
+        if(order.getOrders().size()==0){
             Alert bert = new Alert(Alert.AlertType.ERROR);
             bert.setTitle("Error");
             bert.setHeaderText("Please add an order number!");
@@ -127,7 +123,7 @@ public class CurrentOrderController implements Initializable{
         alert.show();
         MainController.addStoreOrd(order);
         order.setTaxPrice(tempNum);
-        order.setOrderSerial(MainController.getStoreOrd().getStoreOrders().size());
+        //order.setOrderSerial(MainController.getStoreOrd().getStoreOrders().size());
        // Order.addToOrderList(MainController.getArrayList());
         MainController.resetOrder();
 
@@ -138,8 +134,8 @@ public class CurrentOrderController implements Initializable{
         saleLabel.setText("$" + taxString);
         String orderString = df.format(STARTING_PRICE);
         orderLabel.setText("$" + orderString);
-        int temp = MainController.getStoreOrd().getStoreOrders().size() + INCREMENT;
-        numberField.setText("" + temp);
+
+
     }
     public String toString(Pizza pia) {
         String str;
