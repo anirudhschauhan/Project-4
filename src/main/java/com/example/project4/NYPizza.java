@@ -19,7 +19,15 @@ public class NYPizza implements PizzaFactory{
      */
     @Override
     public Pizza createBBQChicken() {
-        return null;
+
+        Pizza pia = new BBQChicken();
+
+        pia.setCrust(Crust.valueOf("THIN"));
+        pia.add(Topping.valueOf("BBQCHICKEN"));
+        pia.add(Topping.valueOf("GREENPEPPER"));
+        pia.add(Topping.valueOf("PROVOLONE"));
+        pia.add(Topping.valueOf("CHEDDAR"));
+        return pia;
     }
 
     /**
@@ -28,7 +36,11 @@ public class NYPizza implements PizzaFactory{
      */
     @Override
     public Pizza createBuildYourOwn() {
-        return null;
+
+        Pizza pia = new BuildYourOwn();
+
+        pia.setCrust(Crust.valueOf("HANDTOSSED"));
+        return pia;
     }
 
     /**
@@ -37,7 +49,17 @@ public class NYPizza implements PizzaFactory{
      */
     @Override
     public Pizza createDeluxe() {
-        return null;
+
+
+        Pizza pia = new Deluxe();
+
+        pia.setCrust(Crust.valueOf("BROOKLYN"));
+        pia.add(Topping.valueOf("SAUSAGE"));
+        pia.add(Topping.valueOf("PEPPERONI"));
+        pia.add(Topping.valueOf("GREENPEPPER"));
+        pia.add(Topping.valueOf("ONION"));
+        pia.add(Topping.valueOf("MUSHROOM"));
+        return pia;
     }
 
     /**
@@ -46,6 +68,14 @@ public class NYPizza implements PizzaFactory{
      */
     @Override
     public Pizza createMeatzza() {
-        return null;
+
+        Pizza pia = new Meatzza();
+
+        pia.setCrust(Crust.valueOf("HANDTOSSED"));
+        pia.add(Topping.valueOf("SAUSAGE"));
+        pia.add(Topping.valueOf("PEPPERONI"));
+        pia.add(Topping.valueOf("BEEF"));
+        pia.add(Topping.valueOf("HAM"));
+        return pia;
     }
 }

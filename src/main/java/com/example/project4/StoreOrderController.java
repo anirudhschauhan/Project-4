@@ -118,10 +118,14 @@ public class StoreOrderController implements Initializable {
                     }
                 }
                 taxField.setText(df.format(orderToDisplay.getTaxPrice()));
+                if(orderCombo.getValue().toString().equals("")){
+                    orderListView.getItems().clear();
+                }
             }
         }
         catch(Exception e) {
             taxField.setText("0.00");
+            orderListView.getItems().clear();
 
         }
     }
@@ -142,6 +146,9 @@ public class StoreOrderController implements Initializable {
 
             }
             myWriter.close();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Text File Added");
+            alert.setHeaderText("An Error Occurred!");
         }
         catch(Exception e){
             Alert bert = new Alert(Alert.AlertType.ERROR);
