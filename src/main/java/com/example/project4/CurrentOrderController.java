@@ -97,9 +97,11 @@ public class CurrentOrderController implements Initializable{
         alert.setHeaderText("The pizzas has been removed");
         currentPizza = currentListView.getSelectionModel().getSelectedItem();
         currentListView.getItems().remove(currentPizza);
+        int x = 0;
         for(Pizza za : order.getOrders()){
-            if(za.toString().equals(currentPizza)){
+            if(toString(za).equals(currentPizza)){
                 order.getOrders().remove(za);
+                System.out.println("poop");
                 double removedPrice = za.price();
                 double tempPrice = removeTotal(removedPrice);
                 String priceString = df.format(tempPrice);
@@ -120,21 +122,18 @@ public class CurrentOrderController implements Initializable{
      * removes all pizzas from current order
      */
     public void removeAllPizzas(){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Pizzas Removed");
-        alert.setHeaderText("All the pizzas have been removed");
-        alert.show();
-        for(Pizza za : order.getOrders()){
-            order.getOrders().remove(za);
-        }
+        order.getOrders().clear();
         currentListView.getItems().clear();
-
         String priceString = df.format(STARTING_PRICE);
         totalLabel.setText("$"+ priceString);
         String taxString = df.format(saleTaxPrice(STARTING_PRICE));
         saleLabel.setText("$" + taxString);
         String orderString = df.format(STARTING_PRICE);
         orderLabel.setText("$" + orderString);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Pizzas Removed");
+        alert.setHeaderText("All the pizzas have been removed");
+        alert.show();
 
     }
 
@@ -201,7 +200,6 @@ public class CurrentOrderController implements Initializable{
             str = "" + type + "Pizza Style: NEW YORK"  + "; Crust: " + pia.getCrust()+ "; Toppings: " + pia.printArrayList() + "; Price: $" + pia.price() + "";
             return (str);
         }
-
 
     }
 

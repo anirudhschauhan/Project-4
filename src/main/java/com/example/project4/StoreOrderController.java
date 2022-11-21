@@ -25,6 +25,7 @@ public class StoreOrderController implements Initializable {
     @FXML
     private ListView<String> orderListView;
     private Order order;
+    private static final int STARTING_ORDER_NUM = 1;
     @FXML
     private ComboBox orderCombo;
     @FXML
@@ -83,7 +84,6 @@ public class StoreOrderController implements Initializable {
         taxField.setText("" + orderPrice);
     }
     public void cancelOrder(ActionEvent Event){
-        if(numbers.size() == 1){
             String num = orderCombo.getValue().toString();
             int newNum = Integer.parseInt(num);
 
@@ -97,28 +97,16 @@ public class StoreOrderController implements Initializable {
             MainController.removeOrderNumber(index);
             storeOrders.getStoreOrders().remove(random);
             orderListView.getItems().clear();
+
             orderCombo.getItems().remove(index);
-            orderCombo.getItems().add("");
-        }
-        else {
-            String num = orderCombo.getValue().toString();
-            int newNum = Integer.parseInt(num);
+            if(MainController.getOrderNumArrayList().get(index) == STARTING_ORDER_NUM){
+                if(MainController.getOrderNumArrayList().get(++index)!=null){
+                    orderCombo.setValue(MainController.getOrderNumArrayList().get(index));
 
-            if (numbers.contains(newNum)) {
-
-                index = numbers.indexOf(newNum);
+                }
             }
-            Order random = storeOrders.getStoreOrders().get(index);
 
-            numbers.remove(index);
-            MainController.removeOrderNumber(index);
-            storeOrders.getStoreOrders().remove(random);
-            orderListView.getItems().clear();
-            // if(numbers.remove(newNum).equals())){
 
-            //}
-            orderCombo.getItems().remove(index);
-        }
     }
 
     /**

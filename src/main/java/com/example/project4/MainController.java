@@ -139,6 +139,9 @@ public class MainController {
         orderNumArrayList.add(i);
         return i;
     }
+    public static ArrayList<Integer> getOrderNumArrayList(){
+        return orderNumArrayList;
+    }
 
     /**
      * removes order number
