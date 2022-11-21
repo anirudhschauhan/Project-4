@@ -12,7 +12,10 @@ import java.text.DecimalFormat;
 import java.util.ResourceBundle;
 
 
-
+/**
+ * Controller for current order
+ * @author Anirudh Chauhan, Matthew Calora
+ */
 public class CurrentOrderController implements Initializable{
     @FXML
     private ListView<String> currentListView;
@@ -52,19 +55,42 @@ public class CurrentOrderController implements Initializable{
         }
         numberField.setText(Integer.toString(order.getOrderSerial()));
     }
+
+    /**
+     * returns total price of current order
+     * @param price
+     * @return
+     */
     public double totalPrice(double price){
 
         total += price;
 
         return total;
     }
+
+    /**
+     * sets sale tax price
+     * @param total
+     * @return saleTaxPrice
+     */
     public double saleTaxPrice(double total){
         return (TAX * total);
     }
+
+    /**
+     * when pizza is removed, removes the pizzas
+     * price from total price
+     * @param price
+     * @return total
+     */
     public double removeTotal(double price) {
         total -= price;
         return total;
     }
+
+    /**
+     * removes pizza from current order
+     */
     public void removePizza(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Pizzas Removed");
@@ -89,6 +115,10 @@ public class CurrentOrderController implements Initializable{
         }
 
     }
+
+    /**
+     * removes all pizzas from current order
+     */
     public void removeAllPizzas(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Pizzas Removed");
@@ -107,6 +137,10 @@ public class CurrentOrderController implements Initializable{
         orderLabel.setText("$" + orderString);
 
     }
+
+    /**
+     * adds order to store
+     */
     public void placeOrders(){
         if(order.getOrders().size()==0){
             Alert bert = new Alert(Alert.AlertType.ERROR);
@@ -137,6 +171,12 @@ public class CurrentOrderController implements Initializable{
 
 
     }
+
+    /**
+     * returns current pizza, its toppings, and price in a string
+     * @param pia
+     * @return string
+     */
     public String toString(Pizza pia) {
         String str;
         String type="";

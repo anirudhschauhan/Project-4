@@ -15,6 +15,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller for store orders
+ * @author Anirudh Chauhan, Matthew Calora
+ */
+
 public class StoreOrderController implements Initializable {
     private static final DecimalFormat df = new DecimalFormat("0.00");
     @FXML
@@ -115,6 +120,13 @@ public class StoreOrderController implements Initializable {
             orderCombo.getItems().remove(index);
         }
     }
+
+    /**
+     * returns the pizza, its toppings, and price as a string
+     * in a string
+     * @param pia
+     * @return string
+     */
     public String toString(Pizza pia) {
         String str;
         String type="";

@@ -2,8 +2,21 @@ package com.example.project4;
 
 import java.util.ArrayList;
 
+
+/**
+ * A class that stores information about a BYO pizza.
+ * This class also includes a way to add and remove toppings
+ * as well as calculate the current price of this BYO pizza
+ * @author Anirudh Chauhan, Matthew Calora
+ */
 public class BuildYourOwn extends Pizza{
     private static final double TOPPING_COST = 1.59;
+
+    /**
+     * adds topping to current BYO pizza
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean add(Object obj) {
         if(obj instanceof Topping){
@@ -17,6 +30,11 @@ public class BuildYourOwn extends Pizza{
         return false;
     }
 
+    /**
+     * removes topping from current BYO pizza
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean remove(Object obj) {
         if(obj instanceof Topping) {
@@ -33,6 +51,11 @@ public class BuildYourOwn extends Pizza{
         return false;
     }
 
+    /**
+     * calculates and returns price
+     * of the current BYO pizza
+     * @return price
+     */
     @Override
     public double price() {
         double price = this.getSize().getBuildYourOwn();

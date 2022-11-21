@@ -10,6 +10,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Main Controller for pizza style selection or
+ * current order or store orders
+ * @author Anirudh Chauhan, Matthew Calora
+ */
 public class MainController {
     @FXML
     private Label welcomeText;
@@ -26,14 +31,12 @@ public class MainController {
         storeOrd = new StoreOrders();
         ord = new Order();
 
-
     }
 
     /**
      * When the Chicago Style button is clicked, changes the scene
      * to allow customization of the chicago style pizza
      * @throws IOException
-     * @author Anirudh Schauhan, Matthew Calora
      */
     @FXML
     protected void onChicagoButtonClick() throws IOException {
@@ -49,7 +52,6 @@ public class MainController {
      * When the NY (New York) Style button is clicked, changes the scene
      * to allow customization of the NY style pizza
      * @throws IOException
-     * @author Anirudh Schauhan, Matthew Calora
      */
     @FXML
     protected void onNYButtonClick() throws IOException {
@@ -65,7 +67,6 @@ public class MainController {
      * When the Current Order button is clicked, changes the scene
      * to allow the customer to view their current order
      * @throws IOException
-     * @author Anirudh Schauhan, Matthew Calora
      */
     @FXML
     protected void onCurrentButtonClick() throws IOException {
@@ -81,7 +82,6 @@ public class MainController {
      * When the Store order button is clicked, changes the scene
      * to view the store order
      * @throws IOException
-     * @author Anirudh Schauhan, Matthew Calora
      */
     @FXML
     protected void onStoreButtonClick() throws IOException {
@@ -95,7 +95,6 @@ public class MainController {
 
     /**
      * gets order
-     * @author Anirudh Schauhan, Matthew Calora
      */
     protected static Order getOrd(){
         return ord;
@@ -103,7 +102,6 @@ public class MainController {
 
     /**
      * gets store order
-     * @author Anirudh Schauhan, Matthew Calora
      */
     protected static StoreOrders getStoreOrd(){
         return storeOrd;
@@ -111,7 +109,6 @@ public class MainController {
 
     /**
      * adds pizza to order
-     * @author Anirudh Schauhan, Matthew Calora
      */
     protected static void addToOrder(Pizza za){
         ord.add(za);
@@ -119,7 +116,6 @@ public class MainController {
 
     /**
      * resets order
-     * @author Anirudh Schauhan, Matthew Calora
      */
     protected static void resetOrder(){
         ord = new Order();
@@ -127,7 +123,6 @@ public class MainController {
 
     /**
      * adds store order
-     * @author Anirudh Schauhan, Matthew Calora
      */
     protected static void addStoreOrd(Order or){
         storeOrd.add(or);
@@ -135,7 +130,6 @@ public class MainController {
 
     /**
      * gets order number
-     * @author Anirudh Schauhan, Matthew Calora
      */
     public static int orderNumber(){
         int i = 1;

@@ -15,7 +15,10 @@ import java.text.DecimalFormat;
 
 
 
-
+/**
+ * Controller for Chicago style pizzas
+ * @author Anirudh Chauhan, Matthew Calora
+ */
 public class ChicagoStyleController implements Initializable {
 
     private String[] flavor = {"DELUXE", "MEATZZA", "BBQ CHICKEN", "BUILD YOUR OWN"};
@@ -59,6 +62,10 @@ public class ChicagoStyleController implements Initializable {
         flavorComboBox.setOnAction(this::changeFlavor);
     }
 
+    /**
+     * changes flavor of pizza
+     * @param event
+     */
     private void changeFlavor(Event event) {
         String flav = flavorComboBox.getValue().toString();
         if (flav.equals("DELUXE")) {
@@ -94,6 +101,9 @@ public class ChicagoStyleController implements Initializable {
         changeSize();
     }
 
+    /**
+     * changes size of current pizza
+     */
     public void changeSize(){
         if (smallSize.isSelected()){
             pia.setSize(Size.valueOf("SMALL"));
@@ -107,10 +117,19 @@ public class ChicagoStyleController implements Initializable {
         changePrice();
 
     }
+
+    /**
+     * changes price of pizza
+     */
     public void changePrice(){
         String priceString = df.format(pia.price());
         priceLabel.setText(priceString);
     }
+
+    /**
+     * adds topping to pizza
+     * @param Event
+     */
     public void addTopping(ActionEvent Event){
         currentTopping = myListView.getSelectionModel().getSelectedItem();
         if (pia.getToppingList().contains(currentTopping)){
@@ -125,6 +144,11 @@ public class ChicagoStyleController implements Initializable {
 
 
     }
+
+    /**
+     * removes topping from pizza
+     * @param Event
+     */
     public void removeTopping(ActionEvent Event){
         currentTopping = topListView.getSelectionModel().getSelectedItem();
         if (!pia.getToppingList().contains(currentTopping)){
@@ -140,6 +164,9 @@ public class ChicagoStyleController implements Initializable {
     }
     //not right
 
+    /**
+     * adds pizza to order
+     */
     public void addOrder(){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Pizza Added");
@@ -164,7 +191,5 @@ public class ChicagoStyleController implements Initializable {
 
 
     }
-
-
 
 }

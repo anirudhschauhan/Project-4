@@ -1,6 +1,18 @@
 package com.example.project4;
 
+
+/**
+ * A class that stores information about a Chicago style pizza
+ * This class creates different types of pizzas under the
+ * Chicago style pizza category
+ * @author Anirudh Chauhan, Matthew Calora
+ */
 public class ChicagoPizza implements PizzaFactory{
+
+    /**
+     * creates a BBQ Chicken pizza under the Chicago pizza category
+     * @return null
+     */
     @Override
     public Pizza createBBQChicken() {
         Pizza pia = new BBQChicken();
@@ -14,6 +26,10 @@ public class ChicagoPizza implements PizzaFactory{
 
     }
 
+    /**
+     * creates a BYO pizza under the Chicago pizza category
+     * @return null
+     */
     @Override
     public Pizza createBuildYourOwn() {
         Pizza pia = new BuildYourOwn();
@@ -22,6 +38,10 @@ public class ChicagoPizza implements PizzaFactory{
         return pia;
     }
 
+    /**
+     * creates a deluxe pizza under the Chicago pizza category
+     * @return null
+     */
     @Override
     public Pizza createDeluxe() {
         Pizza pia = new Deluxe();
@@ -35,6 +55,10 @@ public class ChicagoPizza implements PizzaFactory{
         return pia;
     }
 
+    /**
+     * creates a meat pizza under the Chicago pizza category
+     * @return null
+     */
     @Override
     public Pizza createMeatzza() {
         Pizza pia = new Meatzza();

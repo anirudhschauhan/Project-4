@@ -25,7 +25,6 @@ public class MainApplication extends Application {
     /**
      * This is the main method for the GUI.
      * Launches the GUI.
-     * @author Anirudh Schauhan, Matthew Calora
      */
     public static void main(String[] args) {
         launch();

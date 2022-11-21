@@ -4,7 +4,14 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-
+/**
+ * A class that stores information about pizzas in
+ * a current order. This includes ways to add and
+ * remove pizzas. Can set and get sales tax. Can get the
+ * serial number of the order and number of pizzas in
+ * the order
+ * @author Anirudh Chauhan, Matthew Calora
+ */
 
 
 public class Order implements Customizable{
@@ -29,6 +36,11 @@ public class Order implements Customizable{
         return this.pizzaOrders;
     }
 
+    /**
+     * adds pizza to current order
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean add(Object obj) {
         if (obj instanceof Pizza) {
@@ -38,6 +50,12 @@ public class Order implements Customizable{
         }
         return false;
     }
+
+    /**
+     * removes pizza from current order
+     * @param obj
+     * @return boolean
+     */
     @Override
     public boolean remove(Object obj) {
         if(obj instanceof Pizza){
@@ -48,16 +66,36 @@ public class Order implements Customizable{
         }
         return false;
     }
+
+    /**
+     * returns the number of pizzas in
+     * the current order
+     * @return
+     */
     public int getOrderSize(){
         return pizzaOrders.size();
     }
 
+    /**
+     * gets serial number of current order
+     * @return
+     */
     public int getOrderSerial(){
         return serial;
     }
+
+    /**
+     * sets tax price for the current order
+     * @param price
+     */
     public void setTaxPrice(double price){
         this.taxPrice = price;
     }
+
+    /**
+     * gets tax price for the current order
+     * @return
+     */
     public double getTaxPrice(){
         return this.taxPrice;
     }
