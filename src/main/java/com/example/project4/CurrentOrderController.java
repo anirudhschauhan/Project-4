@@ -101,7 +101,6 @@ public class CurrentOrderController implements Initializable{
         for(Pizza za : order.getOrders()){
             if(toString(za).equals(currentPizza)){
                 order.getOrders().remove(za);
-                System.out.println("poop");
                 double removedPrice = za.price();
                 double tempPrice = removeTotal(removedPrice);
                 String priceString = df.format(tempPrice);

@@ -148,6 +148,7 @@ public class MainController {
      * @author Anirudh Schauhan, Matthew Calora
      */
     public static void removeOrderNumber(int rem){
+
         orderNumArrayList.remove(rem);
     }
 }

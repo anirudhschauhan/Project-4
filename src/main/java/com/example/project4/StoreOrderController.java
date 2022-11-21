@@ -5,15 +5,22 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.net.URL;
+
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
+import javafx.scene.shape.Path;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Path;
 
 /**
  * Controller for store orders
@@ -24,88 +31,125 @@ public class StoreOrderController implements Initializable {
     private static final DecimalFormat df = new DecimalFormat("0.00");
     @FXML
     private ListView<String> orderListView;
-    private Order order;
+
     private static final int STARTING_ORDER_NUM = 1;
     @FXML
     private ComboBox orderCombo;
     @FXML
     private TextField taxField;
-    private  ArrayList<Integer> numbers;
-    private int index;
 
-    private Pizza pia;
 
     private StoreOrders storeOrders;
     public StoreOrderController(){
-        numbers = new ArrayList<>();
+
         storeOrders = MainController.getStoreOrd();
 
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        orderCombo.setValue("1");
-        for (Order ord : storeOrders.getStoreOrders()) {
-
-            for (Pizza za : ord.getOrders()){
-                order = ord;
-                orderListView.getItems().add(toString(za));
-            }
-            break;
-            //System.out.println("" + ord.getOrderSerial());
+        orderCombo.getItems().addAll(MainController.getOrderNumArrayList());
+        if(!(MainController.getOrderNumArrayList().size() <= STARTING_ORDER_NUM)) {
+            int numOrders = MainController.getOrderNumArrayList().size() - 1;
+            orderCombo.getItems().remove(MainController.getOrderNumArrayList().get(numOrders));
         }
+        orderCombo.setValue(MainController.getOrderNumArrayList().get(0));
 
-        for (Order ord : storeOrders.getStoreOrders()) {
-            numbers.add(ord.getOrderSerial());
-        }
-        orderCombo.getItems().addAll(numbers);
-        String orderPrice = df.format(order.getTaxPrice());
-        taxField.setText("" + orderPrice);
-
-
-
-        orderCombo.setOnAction(this::changeOrder);
-        //public static final
-
-
-    }
-    public void changeOrder(Event event) {
-        orderListView.getItems().clear();
-        String num = orderCombo.getValue().toString();
-        int newNum = Integer.parseInt(num);
-
-        if (numbers.contains(newNum)) {
-            index = numbers.indexOf(newNum);
-        }
-        Order random = storeOrders.getStoreOrders().get(index);
-        for(Pizza za : random.getOrders()){
-             orderListView.getItems().add(toString(za));
-        }
-        String orderPrice = df.format(random.getTaxPrice());
-        taxField.setText("" + orderPrice);
-    }
-    public void cancelOrder(ActionEvent Event){
-            String num = orderCombo.getValue().toString();
-            int newNum = Integer.parseInt(num);
-
-            if (numbers.contains(newNum)) {
-
-                index = numbers.indexOf(newNum);
-            }
-            Order random = storeOrders.getStoreOrders().get(index);
-
-            numbers.remove(index);
-            MainController.removeOrderNumber(index);
-            storeOrders.getStoreOrders().remove(random);
-            orderListView.getItems().clear();
-
-            orderCombo.getItems().remove(index);
-            if(MainController.getOrderNumArrayList().get(index) == STARTING_ORDER_NUM){
-                if(MainController.getOrderNumArrayList().get(++index)!=null){
-                    orderCombo.setValue(MainController.getOrderNumArrayList().get(index));
-
+        if(storeOrders.getStoreOrders() != null) {
+            Order startingOrder = null;
+            for(Order ord : storeOrders.getStoreOrders()) {
+                if(ord.getOrderSerial() == MainController.getOrderNumArrayList().get(0)) {
+                    startingOrder = ord;
                 }
             }
+            if (startingOrder != null) {
+                for (Pizza za : startingOrder.getOrders()) {
+                    orderListView.getItems().add(toString(za));
+                }
+                taxField.setText(df.format(startingOrder.getTaxPrice()));
+            }
+        }
+    }
+    public void changeOrder(ActionEvent event) {
+        if(orderCombo.getValue() == null) {
+            return;
+        }
 
+        int orderNum = Integer.parseInt(orderCombo.getValue().toString());
+        Order orderToDisplay = null;
+        for(Order ord : storeOrders.getStoreOrders()) {
+            if(ord.getOrderSerial() == orderNum) {
+                orderToDisplay = ord;
+            }
+        }
+        if(orderToDisplay != null) {
+            orderListView.getItems().clear();
+            for (Pizza za : orderToDisplay.getOrders()) {
+                orderListView.getItems().add(toString(za));
+            }
+            taxField.setText(df.format(orderToDisplay.getTaxPrice()));
+        }
+    }
+
+    public void cancelOrder(ActionEvent Event){
+        try {
+            int orderNum = Integer.parseInt(orderCombo.getValue().toString());
+            Order orderToCancel = null;
+            for(Order ord : storeOrders.getStoreOrders()) {
+                if(ord.getOrderSerial() == orderNum) {
+                    orderToCancel = ord;
+                }
+            }
+            if(storeOrders.remove(orderToCancel)) {
+                int removeIndex = MainController.getOrderNumArrayList().indexOf(orderNum);
+                orderCombo.getItems().remove(MainController.getOrderNumArrayList().get(removeIndex));
+
+                if(orderNum == MainController.getOrderNumArrayList().get(0)) {
+                    if(MainController.getOrderNumArrayList().get(++removeIndex) != null) {
+                        orderCombo.setValue(MainController.getOrderNumArrayList().get(removeIndex));
+                    }
+                }
+                MainController.getOrderNumArrayList().remove(Integer.valueOf(orderNum));
+                orderNum = Integer.parseInt(orderCombo.getValue().toString());
+
+                Order orderToDisplay = null;
+                for(Order ord : storeOrders.getStoreOrders()) {
+                    if(ord.getOrderSerial() == orderNum) {
+                        orderToDisplay = ord;
+                    }
+                }
+                taxField.setText(df.format(orderToDisplay.getTaxPrice()));
+            }
+        }
+        catch(Exception e) {
+            taxField.setText("0.00");
+
+        }
+    }
+
+    public void export(ActionEvent Event){
+        try{
+            File myObj = new File("output.txt");
+            Alert bert = new Alert(Alert.AlertType.ERROR);
+
+            FileWriter myWriter = new FileWriter("output.txt");
+
+            for(Order ord : storeOrders.getStoreOrders()){
+                for(Pizza za : ord.getOrders()){
+                    String str = toString(za) + "\n";
+
+                    myWriter.write(str);
+                }
+
+            }
+            myWriter.close();
+        }
+        catch(Exception e){
+            Alert bert = new Alert(Alert.AlertType.ERROR);
+            bert.setTitle("Error");
+            bert.setHeaderText("An Error Occurred!");
+            bert.show();
+
+        }
 
     }
 

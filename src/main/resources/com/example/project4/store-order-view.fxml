@@ -10,11 +10,11 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.project4.StoreOrderController">
    <children>
       <ListView fx:id="orderListView" layoutX="147.0" layoutY="100.0" prefHeight="200.0" prefWidth="306.0" />
-      <ComboBox fx:id="orderCombo" layoutX="50.0" layoutY="54.0" prefWidth="150.0" />
+      <ComboBox fx:id="orderCombo" layoutX="50.0" layoutY="54.0" onAction="#changeOrder" prefWidth="150.0" />
       <Label layoutX="86.0" layoutY="30.0" text="Order Number" />
       <Label layoutX="265.0" layoutY="59.0" text="Order Total (with tax):" />
       <TextField fx:id="taxField" editable="false" layoutX="388.0" layoutY="55.0" />
       <Button fx:id="cancelOrderButton" layoutX="110.0" layoutY="316.0" mnemonicParsing="false" onAction="#cancelOrder" text="Cancel Order" />
-      <Button fx:id="exportButton" layoutX="398.0" layoutY="317.0" mnemonicParsing="false" text="Export" />
+      <Button fx:id="exportButton" layoutX="398.0" layoutY="317.0" mnemonicParsing="false" onAction="#export" text="Export" />
    </children>
 </AnchorPane>
