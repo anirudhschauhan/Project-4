@@ -28,6 +28,13 @@ public class MainController {
 
 
     }
+
+    /**
+     * When the Chicago Style button is clicked, changes the scene
+     * to allow customization of the chicago style pizza
+     * @throws IOException
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     @FXML
     protected void onChicagoButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("chicago-view.fxml"));
@@ -37,6 +44,13 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * When the NY (New York) Style button is clicked, changes the scene
+     * to allow customization of the NY style pizza
+     * @throws IOException
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     @FXML
     protected void onNYButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("new-york-view.fxml"));
@@ -46,6 +60,13 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * When the Current Order button is clicked, changes the scene
+     * to allow the customer to view their current order
+     * @throws IOException
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     @FXML
     protected void onCurrentButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("current-order-view.fxml"));
@@ -55,6 +76,13 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * When the Store order button is clicked, changes the scene
+     * to view the store order
+     * @throws IOException
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     @FXML
     protected void onStoreButtonClick() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("store-order-view.fxml"));
@@ -64,21 +92,51 @@ public class MainController {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * gets order
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     protected static Order getOrd(){
         return ord;
     }
+
+    /**
+     * gets store order
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     protected static StoreOrders getStoreOrd(){
         return storeOrd;
     }
+
+    /**
+     * adds pizza to order
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     protected static void addToOrder(Pizza za){
         ord.add(za);
     }
+
+    /**
+     * resets order
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     protected static void resetOrder(){
         ord = new Order();
     }
+
+    /**
+     * adds store order
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     protected static void addStoreOrd(Order or){
         storeOrd.add(or);
     }
+
+    /**
+     * gets order number
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     public static int orderNumber(){
         int i = 1;
         while(orderNumArrayList.contains(i)){
@@ -87,6 +145,11 @@ public class MainController {
         orderNumArrayList.add(i);
         return i;
     }
+
+    /**
+     * removes order number
+     * @author Anirudh Schauhan, Matthew Calora
+     */
     public static void removeOrderNumber(int rem){
         orderNumArrayList.remove(rem);
     }
