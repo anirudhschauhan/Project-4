@@ -17,15 +17,12 @@ import java.util.ArrayList;
  */
 public class MainController {
     @FXML
-    private Label welcomeText;
+
     private static Order ord;
     private static StoreOrders storeOrd;
     private static ArrayList<Integer> orderNumArrayList;
 
-   // @FXML
-   // protected void onHelloButtonClick() {
-   //     welcomeText.setText("Welcome to JavaFX Application!");
-  //  }
+
     public MainController(){
         orderNumArrayList = new ArrayList<>();
         storeOrd = new StoreOrders();

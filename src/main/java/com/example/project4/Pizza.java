@@ -19,7 +19,6 @@ public abstract class Pizza implements Customizable{
     private ArrayList<Topping> toppings;
     private Crust crust;
     private Size size;
-    private String style;
     public abstract double price();
     public ArrayList<Topping> getToppingList(){
         if(toppings ==null){

@@ -31,7 +31,7 @@ public class NewYorkStyleController implements Initializable {
     @FXML
     private ListView<Topping> myListView, topListView;
     private static final int MAX_TOPPINGS = 7;
-    private Order order;
+
 
     @FXML
     private Label priceLabel, crustLabel;
@@ -44,7 +44,6 @@ public class NewYorkStyleController implements Initializable {
         piza = new NYPizza();
         pia = piza.createDeluxe();
         pia.setSize(Size.valueOf("SMALL"));
-        // order = new Order();
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

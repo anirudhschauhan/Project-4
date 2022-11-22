@@ -13,9 +13,7 @@ public class Deluxe extends Pizza{
     public Deluxe(){
 
     }
-    private ArrayList<Topping> toppings;
-    private Crust crust;
-    private Size size;
+
 
 
     /**

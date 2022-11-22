@@ -24,12 +24,10 @@ public class CurrentOrderController implements Initializable{
     private Label totalLabel, saleLabel, orderLabel;
     @FXML
     private TextField numberField;
-    private PizzaFactory piza;
-    private Pizza pia;
     private Order order;
     private static final double TAX = 0.06625;
     double total = STARTING_PRICE;
-    private static final int INCREMENT = 1;
+
     private String currentPizza;
     private double tempNum;
     private static final DecimalFormat df = new DecimalFormat("0.00");

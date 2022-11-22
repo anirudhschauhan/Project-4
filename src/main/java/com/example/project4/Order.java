@@ -1,6 +1,6 @@
 package com.example.project4;
 
-import java.net.URL;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -72,9 +72,6 @@ public class Order implements Customizable{
      * the current order
      * @return
      */
-    public int getOrderSize(){
-        return pizzaOrders.size();
-    }
 
     /**
      * gets serial number of current order

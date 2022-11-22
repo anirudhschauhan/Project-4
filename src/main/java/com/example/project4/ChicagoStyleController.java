@@ -31,7 +31,6 @@ public class ChicagoStyleController implements Initializable {
     @FXML
     private ListView<Topping> myListView, topListView;
     private static final int MAX_TOPPINGS = 7;
-    private Order order;
 
     @FXML
     private Label priceLabel, crustLabel;
