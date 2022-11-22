@@ -69,6 +69,11 @@ public class StoreOrderController implements Initializable {
             }
         }
     }
+
+    /**
+     * changes order from store
+     * @param event
+     */
     public void changeOrder(ActionEvent event) {
         if(orderCombo.getValue() == null) {
             return;
@@ -90,6 +95,10 @@ public class StoreOrderController implements Initializable {
         }
     }
 
+    /**
+     * cancels / removes order from store
+     * @param Event
+     */
     public void cancelOrder(ActionEvent Event){
         try {
             int orderNum = Integer.parseInt(orderCombo.getValue().toString());
@@ -130,6 +139,11 @@ public class StoreOrderController implements Initializable {
         }
     }
 
+    /**
+     * exports a text file that contains
+     * a list of store orders
+     * @param Event
+     */
     public void export(ActionEvent Event){
         try{
             File myObj = new File("output.txt");
@@ -162,7 +176,6 @@ public class StoreOrderController implements Initializable {
 
     /**
      * returns the pizza, its toppings, and price as a string
-     * in a string
      * @param pia
      * @return string
      */

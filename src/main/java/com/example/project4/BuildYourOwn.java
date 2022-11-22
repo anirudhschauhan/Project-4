@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * as well as calculate the current price of this BYO pizza
  * @author Anirudh Chauhan, Matthew Calora
  */
-public class BuildYourOwn extends Pizza{
+public class BuildYourOwn extends Pizza {
     private static final double TOPPING_COST = 1.59;
 
     /**
@@ -62,9 +62,9 @@ public class BuildYourOwn extends Pizza{
         return price + (getToppingList().size() * TOPPING_COST);
 
     }
-    public double newPrice(double price){
+    /*public double newPrice(double price){
         return (price + TOPPING_COST);
-    }
+    }*/
 
 
 
