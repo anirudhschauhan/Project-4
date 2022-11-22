@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
@@ -32,5 +33,6 @@
       <Label fx:id="priceLabel1" layoutX="382.0" layoutY="340.0" text="Price: $" />
       <Label layoutX="388.0" layoutY="87.0" text="Crust:" />
       <Label fx:id="crustLabel" layoutX="423.0" layoutY="87.0" text="DEEPDISH" />
+      <ImageView fitHeight="66.0" fitWidth="125.0" layoutX="468.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
