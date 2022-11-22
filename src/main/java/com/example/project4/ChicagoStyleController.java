@@ -76,24 +76,28 @@ public class ChicagoStyleController implements Initializable {
             crustLabel.setText(""+ pia.getCrust());
             addButton.setDisable(true);
             removeButton.setDisable(true);
+            getFlavor();
         }
         if (flav.equals("MEATZZA")) {
             pia = piza.createMeatzza();
             crustLabel.setText(""+ pia.getCrust());
             addButton.setDisable(true);
             removeButton.setDisable(true);
+            getFlavor();
         }
         if (flav.equals("BBQ CHICKEN")) {
             pia = piza.createBBQChicken();
             crustLabel.setText(""+ pia.getCrust());
             addButton.setDisable(true);
             removeButton.setDisable(true);
+            getFlavor();
         }
         if (flav.equals("BUILD YOUR OWN")) {
             pia = piza.createBuildYourOwn();
             crustLabel.setText(""+ pia.getCrust());
             addButton.setDisable(false);
             removeButton.setDisable(false);
+            getFlavor();
 
         }
         topListView.getItems().clear();
