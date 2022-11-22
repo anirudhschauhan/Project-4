@@ -7,6 +7,8 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -37,6 +39,8 @@ public class NewYorkStyleController implements Initializable {
     private Label priceLabel, crustLabel;
     private PizzaFactory piza;
     private Pizza pia;
+    private Image piaImage;
+    private ImageView piaView;
     private Topping currentTopping;
     @FXML
     private RadioButton smallSize, mediumSize, largeSize;
@@ -175,7 +179,6 @@ public class NewYorkStyleController implements Initializable {
         MainController.addToOrder(pia);
 
 
-
         pia = piza.createDeluxe();
         crustLabel.setText(""+ pia.getCrust());
 
@@ -189,6 +192,31 @@ public class NewYorkStyleController implements Initializable {
         priceLabel.setText(""+ pia.price()+"");
 
 
+    }
+    public void getFlavor(){
+        String flav = flavorComboBox.getValue().toString();
+        addButton.setDisable(true);
+        removeButton.setDisable(true);
+        if(flav.equals("DELUXE")){
+            pia = piza.createDeluxe();
+            piaImage = new Image(getClass().getResourceAsStream("/images/deluxeNYpizza.png"));
+            piaView.setImage(piaImage);
+        }
+        if(flav.equals("MEATZZA")){
+            pia = piza.createMeatzza();
+            piaImage = new Image(getClass().getResourceAsStream("/images/meatzzaNYpizza.png"));
+            piaView.setImage(piaImage);
+        }
+        if(flav.equals("BBQ CHICKEN")){
+            pia = piza.createBBQChicken();
+            piaImage = new Image(getClass().getResourceAsStream("/images/bbqchickenNYpizza.png"));
+            piaView.setImage(piaImage);
+        }
+        if(flav.equals("BUILD YOUR OWN")){
+            pia = piza.createDeluxe();
+            piaImage = new Image(getClass().getResourceAsStream("/images/byoNYpizza.png"));
+            piaView.setImage(piaImage);
+        }
     }
 
 }

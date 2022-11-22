@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1693b8bc-3ccf-401f-b08b-7d6b49ebf837" name="Changes" comment="new changes">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoStyleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoStyleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/CurrentOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/CurrentOrderController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Deluxe.java" afterDir="false" />
@@ -13,6 +14,11 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/Pizza.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/StoreOrderController.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoStyleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/ChicagoStyleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/project4/NewYorkStyleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/project4/NewYorkStyleController.java" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +33,7 @@
         <option value="Enum" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -50,7 +57,12 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+<<<<<<< Updated upstream
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+=======
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+>>>>>>> Stashed changes
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;F:/School/SoftMeth/Project-4&quot;,
@@ -66,7 +78,7 @@
       <recent name="com.example.project4" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BuildYourOwnTest.add">
+  <component name="RunManager" selected="JUnit.BuildYourOwnTest">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.project4.HelloApplication" />
       <module name="Project-4" />
@@ -106,6 +118,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BuildYourOwnTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project-4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.project4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.project4" />
+      <option name="MAIN_CLASS_NAME" value="com.example.project4.BuildYourOwnTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BuildYourOwnTest.add" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project-4" />
       <extension name="coverage">
@@ -124,6 +151,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BuildYourOwnTest" />
         <item itemvalue="JUnit.BuildYourOwnTest.add" />
         <item itemvalue="Application.MainApplication" />
         <item itemvalue="Application.MainView" />
@@ -134,13 +162,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f8256c24-3018-43e3-9062-cafc6754857f" name="Changes" comment="" />
+      <changelist id="1693b8bc-3ccf-401f-b08b-7d6b49ebf837" name="Changes" comment="new changes" />
       <created>1668579186231</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668579186231</updated>
       <workItem from="1668996225001" duration="8061000" />
       <workItem from="1669072875167" duration="1659000" />
+      <workItem from="1669083598748" duration="2506000" />
     </task>
     <task id="LOCAL-00001" summary="new changes">
       <created>1668755614275</created>
